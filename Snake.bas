@@ -86,52 +86,41 @@ End Sub
 
 Sub MoveSnake (HeadDirection, SegmentsCount)
 
-    If HeadDirection = 0 Then
+    Select Case HeadDirection
 
-        For x = 0 To SegmentsCount
+        Case 0
+            For x = 0 To SegmentsCount
 
-            tempY = SnakeSegments(x, 1)
-            SnakeSegments(x, 1) = SnakeSegments(x, 1) + 60
-            SnakeSegments(x + 1, 1) = tempY
+                tempY = SnakeSegments(x, 1)
+                SnakeSegments(x, 1) = SnakeSegments(x, 1) + 60
+                SnakeSegments(x + 1, 1) = tempY
 
-        Next x
+            Next x
+        Case 1
+            For x = 0 To SegmentsCount
 
-    End If
+                tempY = SnakeSegments(x, 1)
+                SnakeSegments(x, 1) = SnakeSegments(x, 1) - 60
+                SnakeSegments(x + 1, 1) = tempY
 
-    If HeadDirection = 1 Then
+            Next x
+        Case 2
+            For x = 0 To SegmentsCount
 
-        For x = 0 To SegmentsCount
+                tempX = SnakeSegments(x, 0)
+                SnakeSegments(x, 0) = SnakeSegments(x, 0) - 60
+                SnakeSegments(x + 1, 0) = tempX
 
-            tempY = SnakeSegments(x, 1)
-            SnakeSegments(x, 1) = SnakeSegments(x, 1) - 60
-            SnakeSegments(x + 1, 1) = tempY
+            Next x
+        Case 3
+            For x = 0 To SegmentsCount
 
-        Next x
+                tempX = SnakeSegments(x, 0)
+                SnakeSegments(x, 0) = SnakeSegments(x, 0) + 60
+                SnakeSegments(x + 1, 0) = tempX
 
-    End If
+            Next x
 
-    If HeadDirection = 2 Then
-
-        For x = 0 To SegmentsCount
-
-            tempX = SnakeSegments(x, 0)
-            SnakeSegments(x, 0) = SnakeSegments(x, 0) - 60
-            SnakeSegments(x + 1, 0) = tempX
-
-        Next x
-
-    End If
-
-    If HeadDirection = 3 Then
-
-        For x = 0 To SegmentsCount
-
-            tempX = SnakeSegments(x, 0)
-            SnakeSegments(x, 0) = SnakeSegments(x, 0) + 60
-            SnakeSegments(x + 1, 0) = tempX
-
-        Next x
-
-    End If
+    End Select
 
 End Sub
